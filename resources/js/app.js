@@ -20,6 +20,11 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('vuetify-example-component', require('./components/VuetifyExampleComponent.vue').default);
+
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css' // 必要に応じて入れる
+Vue.use(Vuetify);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +32,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+let vuetify = new Vuetify();
+
 const app = new Vue({
     el: '#app',
+    vuetify
 });
